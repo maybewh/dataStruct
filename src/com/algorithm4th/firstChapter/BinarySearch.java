@@ -26,4 +26,10 @@ public class BinarySearch {
 		}
 		return -1;
 	}
+	
+	public static void main(String[] args) {
+		int key = 5;
+		int[] array = {1,3,4,5,6,7,9};
+		System.out.println(BinarySearch.rank(key, array));
+	}
 }
