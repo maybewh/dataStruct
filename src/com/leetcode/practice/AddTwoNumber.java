@@ -6,11 +6,10 @@ import java.util.List;
 public  class AddTwoNumber {
 	
 	/**
-	 * ¸ø¶¨Á½¸ö·Ç¿ÕÁ´±íÀ´±íÊ¾Á½¸ö·Ç¸ºÕûÊý¡£Î»Êý°´ÕÕÄæÐò·½Ê½´æ´¢£¬ËüÃÇµÄÃ¿¸ö½ÚµãÖ»´æ´¢µ¥¸öÊý×Ö¡£½«Á½ÊýÏà¼Ó·µ»ØÒ»¸öÐÂµÄÁ´±í¡£
-	 * Äã¿ÉÒÔ¼ÙÉè³ýÁËÊý×Ö 0 Ö®Íâ£¬ÕâÁ½¸öÊý×Ö¶¼²»»áÒÔÁã¿ªÍ·¡£
+	 * ç¬¬1é¢˜ï¼Œä¸¤æ•°ç›¸åŠ  LeetCodeç¬¬ä¸€é¢˜
 	 * @param l1
 	 * @param l2
-	 * @return ·µ»ØÍ·½áµã            50%Í¨¹ý
+	 * @return ï¿½ï¿½ï¿½ï¿½Í·ï¿½ï¿½ï¿½            50%Í¨ï¿½ï¿½
 	 */
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
     	
@@ -57,7 +56,7 @@ public  class AddTwoNumber {
     }
     
     /**
-     * sum = x + y + carry (carryÎª½øÎ»µÄÖµ£¬0 »ò 1)
+     * sum = x + y + carry (carryÎªï¿½ï¿½Î»ï¿½ï¿½Öµï¿½ï¿½0 ï¿½ï¿½ 1)
      * @param l1
      * @param l2
      * @return
@@ -78,7 +77,7 @@ public  class AddTwoNumber {
     		if(q != null) q = q.next;
     		
     	}
-    	//ÊÇ·ñÐèÒª¼ÓÒ»Î»
+    	//ï¿½Ç·ï¿½ï¿½ï¿½Òªï¿½ï¿½Ò»Î»
     	if(carry > 0) {
     		current.next = new ListNode(carry);
     	}

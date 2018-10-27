@@ -13,18 +13,17 @@ public class SortCompare {
 		if(alg.equals("Heap")) Heap.sort(a);
 		long now = System.currentTimeMillis();
 		 double time = (now - start) / 1000;
-		 return time; //µ¥Î»£ºs
+		 return time; //å•ä½ï¼šs
 	}
 	
-	//Ëæ»úÊı×éÊäÈëÄ£ĞÍ.Éú³ÉËæ»úµÄDoubleÖµ£¬½«ËüÃÇÅÅĞò£¬²¢·µ»ØÖ¸¶¨´Î²âÊÔµÄ×ÜÊ±¼ä
-	//Ê¹ÓÃ0.0µ½1.0Ö®¼äµÄËæ»úDoubleÖµ£¬¼¸ºõ²»»á²úÉúÖØ¸´µÄÖµ
+	//éšæœºæ•°ç»„è¾“å…¥æ¨¡å‹.ç”Ÿæˆéšæœºçš„Doubleå€¼ï¼Œå°†å®ƒä»¬æ’åºï¼Œå¹¶è¿”å›æŒ‡å®šæ¬¡æµ‹è¯•çš„æ€»æ—¶é—´
+	//ä½¿ç”¨0.0åˆ°1.0ä¹‹é—´çš„éšæœºDoubleå€¼ï¼Œå‡ ä¹ä¸ä¼šäº§ç”Ÿé‡å¤çš„å€¼
 	public static double timeRandomInput(String alg,int N,int T) {
-		//Ê¹ÓÃËã·¨£¬½«T¸ö³¤¶ÈÎªNµÄÊı×éÅÅĞò
+		//ä½¿ç”¨ç®—æ³•ï¼Œå°†Tä¸ªé•¿åº¦ä¸ºNçš„æ•°ç»„æ’åº
 		double total = 0.0;
 		Double[] a = new Double[N];
 		for (int i = 0; i < T; i++) {
-			//½øĞĞÒ»´Î²âÊÔ
-			a[i] = StdRandom.uniform(); //?
+			//è¿›è¡Œä¸€æ¬¡æµ‹è¯•			a[i] = StdRandom.uniform(); //?
 		}
 		total = total + time(alg,a);
 				
@@ -36,12 +35,12 @@ public class SortCompare {
 		String alg1 = args[0];
 		String alg2 = args[1];
 		
-		int N = Integer.parseInt(args[2]); //³¤¶ÈÎªNµÄÊı×é
-		int T = Integer.parseInt(args[3]); //ÓĞT¸ö³¤¶ÈÎªTµÄÊı×é
+		int N = Integer.parseInt(args[2]); //é•¿åº¦ä¸ºNçš„æ•°ç»„
+		int T = Integer.parseInt(args[3]); //æœ‰Tä¸ªé•¿åº¦ä¸ºTçš„æ•°ç»„
 		double t1 = timeRandomInput(alg1, N, T);
 		double t2 = timeRandomInput(alg2, N, T);
-		System.out.println("µÚÒ»¸öÅÅĞòËã·¨µÄÊ±¼äÎª£º" + t1);
-		System.out.println("µÚ¶ş¸öÅÅĞòËã·¨µÄÊ±¼äÎª£º" + t2);
+		System.out.println("ç¬¬ä¸€ä¸ªæ’åºç®—æ³•çš„æ—¶é—´ä¸ºï¼š" + t1);
+		System.out.println("ç¬¬äºŒä¸ªæ’åºç®—æ³•çš„æ—¶é—´ä¸ºï¼š" + t2);
 	}
 	
 }
