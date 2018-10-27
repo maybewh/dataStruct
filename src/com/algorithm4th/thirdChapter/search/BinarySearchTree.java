@@ -88,11 +88,11 @@ public class BinarySearchTree {
 	 *   3)有两个孩子，若y是z的右孩子，则用y替换z。否则，y位于z的右子树但并不是y的右孩子。在这种情况下，先用y的右孩子替代y，然后再用y替代z
 	 * @param args
 	 */
-	public void transplant(BinarySearchTree tree,Node u,Node v) {
+	public void transplant(Node root,Node u,Node v) {
 		
 	}
 	
-	public Node delete(BinarySearchTree tree,Node u) {
+	public Node delete(Node root,Node u) {
 		return null;
 	}
 	public static void main(String[] args) {
