@@ -91,6 +91,10 @@ public class BinarySearchTree {
 	public void transplant(BinarySearchTree tree,Node u,Node v) {
 		
 	}
+	
+	public Node delete(BinarySearchTree tree,Node u) {
+		return null;
+	}
 	public static void main(String[] args) {
 		 BinarySearchTree tree = new BinarySearchTree(); 
 		  
