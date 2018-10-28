@@ -88,12 +88,68 @@ public class BinarySearchTree {
 	 *   3)有两个孩子，若y是z的右孩子，则用y替换z。否则，y位于z的右子树但并不是y的右孩子。在这种情况下，先用y的右孩子替代y，然后再用y替代z
 	 * @param args
 	 */
+	/**
+	 * 用一棵以v为根的子树来替换一棵以u为根的子树时，结点u的双亲变为结点v的双亲，最后成为v成为u的双亲
+	 * @param root
+	 * @param u
+	 * @param v
+	 */
 	public void transplant(Node root,Node u,Node v) {
-		
+/*		//伪代码
+		if(u.parent == null) //u是T的树根
+			root = v;
+		else if(u == u.parent.left) 
+			u.parent.left = v;
+		else
+			 u.parent.right = v;
+		if(v != null)
+			v.parent = u.parent;*/
+		if(root == u)
+			root = v;
+		else if(u == root.left)
+			root.left = v;
+		else
+			root.right = v;
+		if(v != null)
+			v = u; //并没有处理v.left和v.right的更新，需要调用者来处理
 	}
 	
-	public Node delete(Node root,Node u) {
-		return null;
+	public void deleteKey(int key) {
+		delete(root,key);
+	}
+	
+	/**
+	 * 此处并不适用算法导论的实现，使用geeksforgeeks上的
+	 * https://www.geeksforgeeks.org/binary-search-tree-set-2-delete/
+	 */
+	public Node delete(Node root,int key) {
+		//1.树是否为空
+		if(root == null)
+			return root;
+		//2.先找到key所在的地方
+		if(key < root.key)
+			root.left = delete(root.left, key);
+		else if(key > root.key)
+			root.right = delete(root.right,key);
+		//3.key对应的结点没有孩子或key对应的结点只有一个孩子
+		if(root.left == null)
+			return root.right;
+		else if(root.right == null)
+			return root.left;
+		//5.key有两孩子,那么key的后继一定在其右子树上,由于key要小于其右子树上的值，故一定在结点右孩子的左子树上，且该结点的左孩子为null
+		else {
+			root.key = minValue(root.right,key);
+			root.right = delete(root.right, key);
+		}
+		return root;
+	}
+	public int minValue(Node node, int  key) {
+		int min = key;
+		while(node.left != null) {
+			min = node.left.key;
+			node = node.left;
+		}
+		return min;
 	}
 	public static void main(String[] args) {
 		 BinarySearchTree tree = new BinarySearchTree(); 
