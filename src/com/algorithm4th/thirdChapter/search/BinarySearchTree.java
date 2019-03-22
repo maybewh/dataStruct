@@ -132,19 +132,20 @@ public class BinarySearchTree {
 		else if(key > root.key)
 			root.right = delete(root.right,key);
 		//3.key对应的结点没有孩子或key对应的结点只有一个孩子
-		if(root.left == null)
-			return root.right;
-		else if(root.right == null)
-			return root.left;
-		//5.key有两孩子,那么key的后继一定在其右子树上,由于key要小于其右子树上的值，故一定在结点右孩子的左子树上，且该结点的左孩子为null
 		else {
-			root.key = minValue(root.right,key);
-			root.right = delete(root.right, key);
+			if(root.left == null)
+				return root.right;
+			else if(root.right == null)
+				return root.left;
+			//5.key有两孩子,那么key的后继一定在其右子树上,由于key要小于其右子树上的值，故一定在结点右孩子的左子树上，且该结点的左孩子为null
+			root.key = minValue(root.right);
+			root.right = delete(root.right, root.key);
+			
 		}
 		return root;
 	}
-	public int minValue(Node node, int  key) {
-		int min = key;
+	public int minValue(Node node) {
+		int min = node.key;
 		while(node.left != null) {
 			min = node.left.key;
 			node = node.left;
@@ -172,5 +173,23 @@ public class BinarySearchTree {
 	        //tree.inorder(); 
 	        Node node = tree.iterativeSearch(tree.root, 70);
 	        System.out.println(node.key+" "+ node.left.key +" " + node.right.key);
+	        
+	        System.out.println("Inorder traversal of the given tree"); 
+	        tree.inorder(); 
+	  
+	        System.out.println("\nDelete 20"); 
+	        tree.deleteKey(20); 
+	        System.out.println("Inorder traversal of the modified tree"); 
+	        tree.inorder(); 
+	  
+	        System.out.println("\nDelete 30"); 
+	        tree.deleteKey(30); 
+	        System.out.println("Inorder traversal of the modified tree"); 
+	        tree.inorder(); 
+	  
+	        System.out.println("\nDelete 50"); 
+	        tree.deleteKey(50); 
+	        System.out.println("Inorder traversal of the modified tree"); 
+	        tree.inorder(); 
 	}
 }
