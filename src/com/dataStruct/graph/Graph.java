@@ -40,7 +40,7 @@ public class Graph {
 			//If a adjacent has not been visited,then mark it 
 			//visited and enqueue it
 			Iterator<Integer> i = adj[s].listIterator();
-			while(i.hasNext()) {
+			while(i.hasNext()) {				
 				int n = i.next();
 				if(!visited[n]) {
 					visited[n] = true;
