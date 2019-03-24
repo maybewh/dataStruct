@@ -3,13 +3,13 @@ package com.dataStruct.graph;
 import java.util.Iterator;
 import java.util.LinkedList;
 
-public class Graph {
+public class GraphBreadthFirstSearch {
 	
 	private int v; //No. of vertices
 	private LinkedList<Integer> adj[]; //adjacency Lists
 	
 	//constructor
-	Graph(int v){
+	GraphBreadthFirstSearch(int v){
 		this.v = v;
 		adj = new LinkedList[v];
 		for(int i = 0; i < v;++i) {
@@ -52,7 +52,7 @@ public class Graph {
 	
 	public static void main(String[] args) {
 		
-		Graph g = new Graph(4);
+		GraphBreadthFirstSearch g = new GraphBreadthFirstSearch(4);
 		g.addEdge(0, 1);
 		g.addEdge(0, 2);
 		g.addEdge(1, 2);
