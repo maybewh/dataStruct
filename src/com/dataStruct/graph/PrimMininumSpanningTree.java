@@ -32,7 +32,7 @@ public class PrimMininumSpanningTree {
 	}
 	
 	//A utility function to print the constructed MST stored in parent[]
-	void printMTS(int parent[], int n, int graph[][]) {
+	void printMST(int parent[], int n, int graph[][]) {
 		System.out.println("Edge \tWeight");
 		for(int i = 1; i < v; i++) {
 			System.out.println(parent[i] +"-"+i +"\t" + graph[i][parent[i]]);
@@ -62,7 +62,48 @@ public class PrimMininumSpanningTree {
 		
 		//The MST will have v vertices
 		for(int count = 0; count < v - 1; count++) {
+			//Pick the mininum key vertex from the set of vertices
+			//not yet included in MST
+			int u = minKey(key,mstSet);
 			
+			//Add the picked vertex to MST set
+			mstSet[u] = true;
+			
+			//Update key value and parent index of the adjacent
+			//vertices of the picked vertex.Consider only those vertices 
+			//which are not yet included in MST
+			for(int i = 0; i < v; i++) {
+				//graph[u][i] is non zero only for adjacent vertices of m
+				//mstSet[i] vertices is false for vertices not yet included in MST
+				//Update the key only if graph[u][i] is smaller than key[i]
+				if(graph[u][i] != 0 && mstSet[i] == false && graph[u][i] < key[i]) {
+					parent[i] = u;
+					key[i] = graph[u][i];
+				}
+			}
 		}
+		
+		printMST(parent,v,graph);
+	}
+	
+	public static void main(String[] args) {
+		 PrimMininumSpanningTree t = new PrimMininumSpanningTree(); 
+	       /* int graph[][] = new int[][] {{0, 6, 1, 5, 0, 0}, 
+	                                    {6, 0, 5, 0, 3, 0}, 
+	                                    {1, 5, 0, 5, 6, 4}, 
+	                                    {5, 0, 5, 0, 0, 2}, 
+	                                    {0, 3, 6, 0, 0, 6},
+	                                    {0, 0, 4, 2, 6, 0}}; */
+		 int graph1[][] = new int[][] {{0, 2, 0, 6, 0}, 
+             {2, 0, 3, 8, 5}, 
+             {0, 3, 0, 0, 7}, 
+             {6, 8, 0, 0, 9}, 
+             {0, 5, 7, 9, 0}};
+	 
+	        // Print the solution 
+	        //t.primMST(graph); 
+	        
+	        System.out.println();
+	        t.primMST(graph1);
 	}
 }
