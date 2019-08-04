@@ -11,14 +11,14 @@ package com.algorithm4th.secondChapter.sort;
  */
 public class Quick {
 	
-	public static Comparable[] sort(Comparable[] a) {
-		Comparable[] arr = a;
+	public static Integer[] sort(Integer[] a) {
+		Integer[] arr = a;
 		sort(arr, 0, a.length - 1);
 		return arr;
 	}
 	
-	public static Comparable[] sort(Comparable[] a,int low,int high) {
-		Comparable[] arr = a;
+	public static Integer[] sort(Integer[] a,int low,int high) {
+		Integer[] arr = a;
 		if(high <= low) return arr; //当变为小数组时可以用插入排序替换，提高效率。因为数组很小时也会调用递归
 					     //可改为 if(high <= low + M) {Insertion.sort(a,low,high); return arr;} M一般为 5 - 15之间
 			int j = partition(arr, low, high);
@@ -29,7 +29,7 @@ public class Quick {
 	}
 
 	//关键点在于partition(),选定一个元素为pivot，若元素大于它，则放在它的右边，元素小于它，则放在左边
-	private static int partition(Comparable[] arr,int low, int high) {
+	private static int partition(Integer[] arr,int low, int high) {
 		//基准的确定：三数取中：即在最多端、中间、最右端的三个数中取一个中间大小的值
 		int mid = low + (high - low) / 2;
 		if(less(arr[high],arr[mid])) {
@@ -88,7 +88,7 @@ public class Quick {
 	
 	public static void main(String[] args) {
 		Integer[] arr = new Integer[] {10,80,30,90,40,50,70};
-		Comparable[] result = Quick.sort(arr);
+		Integer[] result = Quick.sort(arr);
 		for (int i = 0; i < result.length; i++) {
 			Integer num = (Integer)result[i];
 			System.out.print(num + " ");
