@@ -31,7 +31,7 @@ public class BFSByMySelf {
 		
 		LinkedList<Integer> queue = new LinkedList<Integer>();
 		queue.add(beginVetex);
-		
+
 		while(queue.size() != 0) {
 			int s = queue.poll();
 			System.out.println(s + " ");
@@ -44,7 +44,6 @@ public class BFSByMySelf {
 				}
 			}
 		}
-		
 		
 	}
 	
